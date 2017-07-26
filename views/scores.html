@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		OSSM
+	</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/upload_question.css">
+	<link rel="stylesheet" type="text/css" href="/css/scores.css">
+</head>
+<body>
+
+	<div class="topnav">
+
+  		<a href="/dashboard" class="left">Home</a>
+  		<a href="/notes" class="left">Notes </a>
+  		<a href="/exam" class="left active">Tests</a>
+  		<a href="/subSel" class="left">Performance</a>
+
+  		<a href="/login/logout" class="logout">Logout</a>
+
+	</div>
+	<br>
+	<br>
+	<div class="col-lg-6 score">
+		<h2>Your Score is : <%- personalScore %></h2>
+		<br>
+		<br>
+		<% for(var i=0;i<examDetails.questions.length;i++){ %>
+			<h4>Question <%= i+1 %> : <%- examDetails.questions[i] %></h4>
+			<h4>Given Answer : </h4>
+			<% if(exam.ans[i].given == exam.ans[i].crct){ %>
+				<div class="alert alert-success" role="alert"><%- exam.ans[i].given %><br>Correct : <%- exam.ans[i].crct %><br>Solution : <%- examDetails.answers[i].solution %></div>
+			<% }else { %>
+				<div class="alert alert-danger" role="alert"><%- exam.ans[i].given %><br>
+					Correct : <%- exam.ans[i].crct %><br>Solution : <%- examDetails.answers[i].solution %>
+				</div>
+			<% } %>
+		<% } %>
+	</div>
+
+</body>
+</html>

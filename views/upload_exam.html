@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OSSM</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/upload_test.css">
+</head>
+<body>
+
+	<div class="topnav">
+
+  		<a href="/dashboard" class="left">Home</a>
+  		<a href="/notes" class="left">Notes </a>
+  		<a href="/exam" class="left active">Tests</a>
+  		<a href="/subSel" class="left">Statistics</a>
+
+  		<a href="/login/logout" class="logout">Logout</a>
+
+	</div>
+
+	<form class="mystyle" method="POST" action="/exam/prep">
+
+		  <div class="form-group">
+		    <label for="department">Department</label>
+		    <input type="text" class="form-control" id="department" placeholder="Enter Department" name="dept">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="year">Year</label>
+		    <input type="text" class="form-control" id="year" placeholder="Enter Year" name="year">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="year">Subject</label>
+		    <input type="text" class="form-control" id="subject" placeholder="Enter Subject" name="subject">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="year">Exam Name</label>
+		    <input type="text" class="form-control" id="exam" placeholder="Enter Exam Name" name="exam_name">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="year">No of Questions</label>
+		    <input type="text" class="form-control" id="questions" placeholder="Enter No of Questions" name="no_of_que">
+		  </div>
+
+		  <input type="submit" class="btn btn-primary" value="Next"></input>
+
+	 </form>
+
+ </body>
+
+</html>

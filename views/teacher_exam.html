@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OSSM</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/teacher_viewexam.css">
+</head>
+<body>
+
+	<div class="topnav">
+
+		<a href="/dashboard" class="left">Home</a>
+  		<a href="/notes" class="left">Notes </a>
+  		<a href="/exam" class="left active">Tests</a>
+  		<a href="/subSel" class="left">Statistics</a>
+
+  		<a href="/login/logout" class="logout">Logout</a>
+
+	</div>
+	<% for(var i=0;i<exam.questions.length;i++){ %>
+		<div class="question">
+			<p><%= i+1 %>) <%- exam.questions[i] %></p>
+		</div>
+
+		<div class="options">
+			<p>A) <%- exam.options[i].optionA %></p>
+			<p>B) <%- exam.options[i].optionB %></p>
+			<p>C) <%- exam.options[i].optionC %></p>
+			<p>D) <%- exam.options[i].optionD %></p>
+		</div>
+
+		<br>
+
+		<div class="correct-answer">
+			<p>Correct Answer : <%- exam.answers[i].correct %></p>
+		</div>
+
+		<div class="solution">
+			<p>Solution : <%- exam.answers[i].solution %></p>
+		</div>
+	<% } %>
+</body>
+</html>

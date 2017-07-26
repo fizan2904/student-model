@@ -1,0 +1,68 @@
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #333333;
+    overflow: hidden;
+    clear: both;
+}
+
+/* Style the links inside the navigation bar */
+.left {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #dddddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Adding style for logout */
+.logout {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.mystyle {
+    margin-top: 80px;
+    margin-right: auto;
+    margin-left: auto; 
+    width: 50%;
+}
+
+.question {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.options {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.correct-answer {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.solution {
+    font-size: 16px;
+    margin-left: 10px;
+}

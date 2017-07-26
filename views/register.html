@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OSSM</title>
+	<link rel="stylesheet" type="text/css" href="css/register.css">
+	<script language="Javascript">
+		function hideStudent()
+		{
+
+    		document.getElementById("Student").style.display="none";
+    		document.getElementById("Teacher").style.display="block";    
+
+		}
+
+		function hideTeacher()
+		{
+    		document.getElementById("Teacher").style.display="none";
+    		document.getElementById("Student").style.display="block";
+
+		}
+	</script>
+</head>
+<body>
+	<% if(flash){
+		if(error_msg){%>
+			<% for(var i=0;i<error_msg.length;i++){ %>
+				<%= error_msg[i] %>
+			<br>
+			<%}%>
+		<%}
+	}%>
+	<form action="/register" method="POST">
+	
+	<input type="radio"  name="teacher" value="false" onClick="hideTeacher()" checked>Student
+	<input type="radio"  name="teacher" value="true" onClick="hideStudent()">Teacher
+    
+	    <div id="Student" class="container">
+	      
+	      <label><b>First Name</b></label>
+	      <input type="text" name="s_first" placeholder="First Name">
+
+	      <label><b>Last Name</b></label>
+	      <input type="text" name="s_last" placeholder="Last Name">
+
+	      <label><b>E-mail</b></label>
+	      <input type="text" name="s_email" placeholder="E-mail">
+
+	      <label><b>Department</b></label>
+	      <input type="text" name="s_dept" placeholder="Department">
+
+	      <label><b>Year</b></label>
+	      <input type="text" name="s_year" placeholder="Year">
+
+	      <label><b>Section</b></label>
+	      <input type="text" name="s_sec" placeholder="Section">
+
+	      <label><b>Username</b></label>
+	      <input type="text" name="s_username" placeholder="Username">
+
+	      <label><b>Registration ID</b></label>
+	      <input type="text" name="s_regid" placeholder="Registration ID">
+
+	      <label><b>Password</b></label>
+	      <input type="password" name="s_pwd" placeholder="Password">
+
+	      <label><b>Confirm Password</b></label>
+	      <input type="password" name="s_pwd1" placeholder="Confirm Password">
+
+	      <button type="submit">Register</button>
+
+	    </div> 
+	
+	    <div id="Teacher" style="display:none" class="container">
+	      
+	      <label><b>First Name</b></label>
+	      <input type="text" name="t_first" placeholder="First Name">
+
+	      <label><b>Last Name</b></label>
+	      <input type="text" name="t_last" placeholder="Last Name">
+
+	      <label><b>E-mail</b></label>
+	      <input type="text" name="t_email" placeholder="E-mail">
+
+	      <label><b>Department</b></label>
+	      <input type="text" name="t_dept" placeholder="Department">
+
+	      <label><b>Username</b></label>
+	      <input type="text" name="t_username" placeholder="Username">
+
+	      <label><b>Registration ID</b></label>
+	      <input type="text" name="t_regid" placeholder="Registration ID">
+
+	      <label><b>Password</b></label>
+	      <input type="password" name="t_pwd" placeholder="Password">
+
+	      <label><b>Confirm Password</b></label>
+	      <input type="password" name="t_pwd1" placeholder="Confirm Password">
+
+	      <button type="submit">Register</button>
+
+	    </div>    
+
+  </form>
+
+</body>
+</html>

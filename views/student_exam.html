@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OSSM</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/student_exam.css">
+</head>
+	<body>
+
+		<div class="topnav">
+
+	  		<a href="/" class="left">Home</a>
+	  		<a href="/notes" class="left">Notes </a>
+	  		<a href="/exam" class="left active">Tests</a>
+  			<a href="/subSel" class="left">Performance</a>
+
+	  		<a href="/login/logout" class="logout">Logout</a>
+
+		</div>
+		<form method="post" action="/exams/answer/<%- exam.exam_name %>">
+			<% for(var i=0;i<exam.questions.length;i++){ %>
+				<div class="question">
+					<p>Q<%= i+1 %>)&nbsp;&nbsp;<%- exam.questions[i] %></p>
+				</div>
+
+				<div class="options">
+					<input type="radio" name="option[<%= i %>]" value="<%- exam.options[i].optionA %>">&nbsp;&nbsp;<%- exam.options[i].optionA %></input><br>
+					<input type="radio" name="option[<%= i %>]" value="<%- exam.options[i].optionB %>">&nbsp;&nbsp;<%- exam.options[i].optionB %></input><br>
+					<input type="radio" name="option[<%= i %>]" value="<%- exam.options[i].optionC %>">&nbsp;&nbsp;<%- exam.options[i].optionC %></input><br>
+					<input type="radio" name="option[<%= i %>]" value="<%- exam.options[i].optionD %>">&nbsp;&nbsp;<%- exam.options[i].optionD %></input><br>
+				</div>
+			<% } %>
+
+			<input type="submit" name="submit" value="Submit" class="btn btn-primary" style="margin-left: 10px; margin-top:20px">
+		</form>
+
+	</body>
+</html>

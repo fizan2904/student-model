@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OSSM</title>
+  <link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+<body>
+<% if(messages){ %>
+<%- messages[0] %>
+<% } %>
+<form action="/login" method="POST">
+    
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" name="username" placeholder="Username">
+
+      <label><b>Password</b></label>
+      <input type="password" name="password" placeholder="Password">
+
+      <button type="submit">Login</button>
+
+    </div>
+
+  </form>
+
+  <br><br>
+  <p>Not a User? Please Register</p>
+  <center><a href="/register"><button type="submit" name="Sign Up" style="width:50%">Register</button></a></center>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OSSM</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/upload_question.css">
+</head>
+<body>
+
+	<div class="topnav">
+
+  		<a href="/dashboard" class="left">Home</a>
+  		<a href="/notes" class="left">Notes </a>
+  		<a href="/exam" class="left active">Tests</a>
+  		<a href="/subSel" class="left">Statistics</a>
+
+  		<a href="/login/logout" class="logout">Logout</a>
+
+	</div>
+	<form  method="POST" action="/exam/upload" class="mystyle">
+		
+		<% for(var i=1;i<=noqs;i++){ %>
+		<div class="form-group">
+			<label for="Question">Enter Question <%= i %></label>
+			<textarea name="question<%= i %>" class="form-control" id="question<%= i %>" placeholder="Enter Question"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="option<%= i %>">Option 1</label>
+			<input type="text" class="form-control" id="option1<%= i %>" placeholder="Enter Option 1" name="option1<%= i %>">
+		</div>
+		<div class="form-group">
+			<label for="option<%= i %>">Option 2</label>
+			<input type="text" class="form-control" id="option2<%= i %>" placeholder="Enter Option 2" name="option2<%= i %>">
+		</div>
+		<div class="form-group">
+			<label for="option<%= i %>">Option 3</label>
+			<input type="text" class="form-control" id="option3<%= i %>" placeholder="Enter Option 3" name="option3<%= i %>">
+		</div>
+		<div class="form-group">
+			<label for="option<%= i %>">Option 4</label>
+			<input type="text" class="form-control" id="option4<%= i %>" placeholder="Enter Option 4" name="option4<%= i %>">
+		</div>
+		<div class="form-group">
+			<label for="correct<%= i %>">Correct Answer</label>
+			<input type="text" class="form-control" id="correct<%= i %>" placeholder="Enter Correct Answer" name="correct<%= i %>">
+		</div>
+		<div class="form-group">
+			<label for="solution<%= i %>">Solution</label>
+			<textarea name="solution<%= i %>" class="form-control" id="solution<%= i %>" placeholder="Enter Solution"></textarea>
+		</div>
+		<% } %>
+
+		<input type="submit" name="submit" class="btn btn-primary" value="Submit" id="submitButton">
+	</form>
+
+</body>
+</html>

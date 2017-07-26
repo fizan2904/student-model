@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OSSM</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/student_exam.css">
+	<link rel="stylesheet" type="text/css" href="css/student_dash.css">
+</head>
+	<body>
+
+		<div class="topnav">
+
+	  		<a href="/" class="left">Home</a>
+	  		<a href="/notes" class="left">Notes </a>
+	  		<a href="/exam" class="left">Tests</a>
+	  		<% if(!teacher) { %>
+	  			<a href="/subSel" class="left active">Performance</a>
+	  		<% }else{ %>
+	  			<a href="/subSel" class="left active">Statistics</a>
+	  		<% } %>
+			<a href="/login/logout" class="logout">Logout</a>
+
+		</div>
+
+		<table class="table table-striped mystyle">
+			<% if(!teacher){ %>
+			  	<tbody>
+			    	<tr>
+			      		<th>Subject Name</th>
+			      		<th>View Performance</th>
+			      	</tr>
+			      	<% for(var i=0;i<data.length;i++) { %>
+				      	<tr>
+				      		<td><%- data[i] %></td>
+				      		<td><a href="/graphs/exam/<%- data[i] %>"><button class="btn btn-primary">View Performance</button></a></td>
+				      	</tr>
+			      	<% } %>
+			  	</tbody>
+		  	<% }else{ %>
+		  	<tbody>
+		  		<tbody>
+			    	<tr>
+			      		<th>Exam Name</th>
+			      		<th>Department</th>
+			      		<th>Year</th>
+			      		<th>Subject</th>
+			      		<th>Stats</th>
+			      	</tr>
+			      	<% for(var i=0;i<data.length;i++) { %>
+				      	<tr>
+				      		<td><%- data[i].exam_name %></td>
+				      		<td><%- data[i].dept %></td>
+				      		<td><%- data[i].year %></td>
+				      		<td><%- data[i].subject %></td>
+				      		<td><a href="/graphs/teacher/<%- data[i].exam_name %>/<%- data[i].year %>/<%- data[i].dept %>/<%- data[i].subject %>"><button class="btn btn-primary">Stats</button></a></td>
+				      	</tr>
+			      	<% } %>
+			  	</tbody>
+		  	</tbody>
+		  	<% } %>	
+	</table>
+
+	</body>
+</html>

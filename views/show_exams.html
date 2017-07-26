@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OSSM</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/student_dash.css">
+</head>
+<body>
+	<div class="topnav">
+
+  		<a href="/dashboard" class="left">Home</a>
+  		<a href="/notes" class="left">Notes </a>
+  		<a href="/exam" class="left active">Tests</a>
+  		<% if(teacher){ %>
+  			<a href="/subSel" class="left">Statistics</a>
+  		<% }else { %>
+  			<a href="/subSel" class="left">Performance</a>
+  		<% } %>
+
+  		<a href="/login/logout" class="logout">Logout</a>
+
+	</div>
+
+	<table class="table table-striped mystyle">
+	  	<tbody>
+	    	<tr>
+	      		<th>Topic</th>
+	      		<th>Subject</th>
+	      		<th>Department</th>
+	      		<th>Year</th>
+	      		<% if(teacher == false){ %>
+	      			<th>Attempt</th>
+	      		<% }else{ %>
+	      			<th>View Exam</th>
+	      			<th>Delete Exam</th>
+	      		<% } %>
+	      	</tr>
+	      	<% for(var i=0;i<exams.length;i++){ %>
+		      	<tr>
+		      		<td><%- exams[i].exam_name %></td>
+		      		<td><%- exams[i].subject %></td>
+		      		<td><%- exams[i].dept %></td>
+		      		<td><%- exams[i].year %></td>
+		      		<% if(teacher == false) { %>
+		      			<% if(attempted[i] == false) { %>
+		      			<td><a href="/exams/attempt/<%- exams[i].exam_name %>"><button class="btn btn-primary">Attempt Exam</button></a></td>
+		      			<%}else{%>
+		      			<td><a href="/stats/<%- exams[i].exam_name %>"><button class="btn btn-info">Show Performance</button></a></td>
+		      			<%}%>
+		      		<% }else { %>
+		      			<td><a href="/exam/view/<%- exams[i].dept %>/<%- exams[i].year %>/<%- exams[i].exam_name %>"><button class="btn btn-primary">View Exam</button></a></td>
+		      			<td><a href="/exam/delete/<%- exams[i].exam_name %>/<%- exams[i].year %>/<%- exams[i].dept %>/<%- exams[i].subject %>"><button class="btn btn-danger">Delete Exam</button></a></td>
+		      		<% } %>
+		      	</tr>
+		    <% } %>
+	  	</tbody> 	
+	</table>
+	<% if(teacher == true){ %>
+		<center><a href="/exam/upload"><button class="btn btn-primary">Create Exam</button></a></center>
+	<% } %>
+</body>
+</html>

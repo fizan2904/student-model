@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OSSM</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/student_dash.css">
+</head>
+<body>
+	<div class="topnav">
+
+  		<a href="/dashboard" class="left">Home</a>
+  		<a href="/notes" class="left active">Notes </a>
+  		<a href="/exam" class="left">Tests</a>
+  		<% if(teacher){ %>
+  			<a href="/subSel" class="left">Statistics</a>
+  		<% }else{ %>
+  			<a href="/subSel" class="left">Performance</a>
+  		<% } %>
+
+  		<a href="/login/logout" class="logout">Logout</a>
+
+	</div>
+
+	<table class="table table-striped mystyle">
+	  	<tbody>
+	    	<tr>
+	      		<th>Topic</th>
+	      		<th>Subject</th>
+				<th>Department</th>
+				<th>Year</th>
+				<th>View Notes</th>
+				<% if(teacher == true){ %>
+					<th>Delete Notes</th>
+				<% } %>
+	      	</tr>
+	      	<% for(var i=0; i<docs.length; i++) { %>
+		      	<tr>
+		      		<td><%- docs[i].topic_name %></td>
+		      		<td><%- docs[i].subject %></td>
+		      		<td><%- docs[i].dept %></td>
+		      		<td><%- docs[i].year %></td>
+		      		<td><a href="<%- docs[i].path %>">View Notes</a></td>
+		      		<% if(teacher == true){ %>
+		      			<td><a href="/notes/remove/<%- docs[i].topic_name%>">Delete Notes</a></td>
+		      		<% } %>
+		      	</tr>
+	      	<% } %>
+	  	</tbody> 	
+	</table>
+	<% if(teacher == true) { %>
+	 <center><a href="/notes/upload"><button class="btn btn-primary">Upload Notes</button></input></a></center>
+	<% } %>
+	
+</body>
+</html>

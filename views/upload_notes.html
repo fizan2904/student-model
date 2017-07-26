@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OSSM</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/upload_notes.css">
+</head>
+<body>
+
+	<div class="topnav">
+
+  		<a href="/dashboard" class="left">Home</a>
+  		<a href="/notes" class="left active">Notes </a>
+  		<a href="/exam" class="left">Tests</a>
+  		<a href="/subSel" class="left">Statistics</a>
+
+  		<a href="/login/logout" class="logout">Logout</a>
+
+	</div>
+
+	<form class="mystyle" method="POST" action="/notes/upload" enctype="multipart/form-data">
+
+	  <div class="form-group">
+	    <label for="department">Department</label>
+	    <input type="text" name="dept" class="form-control" id="department" placeholder="Enter Department">
+	  </div>
+
+	  <div class="form-group">
+	    <label for="year">Year</label>
+	    <input type="text" name="year" class="form-control" id="year" placeholder="Enter Year">
+	  </div>
+
+	  <div class="form-group">
+	    <label for="Subject">Subject</label>
+	    <input type="text" name="subject" class="form-control" id="subject" placeholder="Enter Subject">
+	  </div>
+
+	  <div class="form-group">
+	    <label for="topic">Topic</label>
+	    <input type="text" name="topic" class="form-control" id="topic" placeholder="Enter Topic">
+	  </div>
+
+	  <div class="form-group">
+	    <label for="exampleInputFile">File input</label>
+	    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="files">
+	  </div>
+
+	  <button type="submit" class="btn btn-primary">Submit</button>
+
+	</form>
+
+</body>
+</html>

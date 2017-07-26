@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OSSM</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/student_exam.css">
+	<style type="text/css">
+		.left-chart {
+			left: 50%;
+			right: 50%;
+			transform: translateX(-50%);
+		}
+	</style>
+</head>
+<body>
+	<div class="topnav">
+
+  		<a href="/" class="left">Home</a>
+  		<a href="/notes" class="left">Notes </a>
+  		<a href="/exam" class="left">Tests</a>
+		<a href="/subSel" class="left active">Performance</a>
+
+  		<a href="/login/logout" class="logout">Logout</a>
+
+	</div>
+	<br>
+	<br>
+	<br>
+	<div class="col col-lg-6 left-chart">
+		<canvas id="myChart"></canvas>
+		<!--<canvas id="pi"></canvas>-->
+	</div>
+	<%	if(sectionA == NaN){ 
+		var sectionA = 0;
+	}else{
+		var sectionA = sectionA;
+	} %>
+	<%	if(sectionB !== null){ 
+		var sectionB = sectionB;
+	}else{
+		var sectionB = 0;
+	} %>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+	<script>
+		
+		var ctx = document.getElementById('myChart').getContext('2d');
+		var sectionA = '<%= sectionA %>';
+		var sectionB = '<%= sectionB %>';
+		console.log(sectionA);
+		console.log(sectionB);
+		var myChart = new Chart(ctx, {
+		  type: 'bar',
+		  data: {
+		        labels: ["Average Scores"],
+		        datasets: [{
+		            label: 'Section A Average',
+		            data: [sectionA],
+		            backgroundColor: [
+		                'rgba(255, 99, 132, 0.2)',
+		                'rgba(54, 162, 235, 0.2)'
+		            ],
+		            borderColor: [
+		                'rgba(255,99,132,1)',
+		                'rgba(54, 162, 235, 1)'
+		            ],
+		            borderWidth: 1,
+		        }, {
+		        	label: 'Section B Average',
+		            data: [sectionB],
+		            backgroundColor: [
+		                'rgba(255, 99, 132, 0.2)',
+		                'rgba(54, 162, 235, 0.2)'
+		            ],
+		            borderColor: [
+		                'rgba(255,99,132,1)',
+		                'rgba(54, 162, 235, 1)'
+		            ],
+		            borderWidth: 1,
+		        }]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }]
+		        },
+		        legend: {
+		        	display: true,
+		        	colors: ['rgba(54, 162, 235, 1)','rgba(54, 162, 235, 1)']
+		        }
+		    }
+		});
+		
+		
+	</script>
+</body>
+</html>
